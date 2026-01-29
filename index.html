@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clawd — Proof of Concept</title>
+  <meta name="description" content="A small proof-of-concept site." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --accent: #7c5cff;
+      --accent2:#2dd4bf;
+      --border: rgba(255,255,255,0.14);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,0.22), transparent 60%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(45,212,191,0.16), transparent 55%),
+                  radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,0.06), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      min-height:100vh;
+    }
+    .wrap{max-width: 980px; margin: 0 auto; padding: 48px 20px 72px;}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+    .mark{display:flex; align-items:center; gap:12px;}
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(45,212,191,1));
+      box-shadow: 0 14px 40px rgba(124,92,255,0.25);
+    }
+    .title{display:flex; flex-direction:column; line-height:1.1}
+    .title strong{font-size:16px; letter-spacing:0.2px}
+    .title span{font-size:13px; color: var(--muted)}
+    .pill{
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      font-size:13px; color: var(--muted);
+    }
+
+    main{margin-top: 46px;}
+    .hero{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: 24px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 220px at 20% 10%, rgba(124,92,255,0.35), transparent 60%),
+                  radial-gradient(520px 220px at 80% 40%, rgba(45,212,191,0.22), transparent 60%);
+      opacity: 0.65;
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+
+    h1{margin:0; font-size: 44px; letter-spacing:-0.8px;}
+    p.lede{margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size:16px; line-height:1.6;}
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 22px;}
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+    .card:hover{transform: translateY(-2px); background: var(--card2); border-color: rgba(255,255,255,0.22)}
+    .card h3{margin: 0 0 8px; font-size: 15px}
+    .card p{margin:0; color: var(--muted); font-size: 13px; line-height: 1.55}
+
+    .cta{margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap;}
+    a.btn{
+      text-decoration:none;
+      color: var(--text);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      display:inline-flex; align-items:center; gap: 10px;
+    }
+    a.btn.primary{border-color: rgba(124,92,255,0.6); background: rgba(124,92,255,0.16)}
+    .dot{width:8px; height:8px; border-radius: 999px; background: var(--accent2); box-shadow: 0 0 0 4px rgba(45,212,191,0.15)}
+
+    footer{margin-top: 28px; color: rgba(255,255,255,0.45); font-size: 12px;}
+
+    @media (max-width: 720px){
+      h1{font-size: 36px;}
+      .card{grid-column: span 12;}
+      .hero{padding: 26px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="mark">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">
+          <strong>Clawd</strong>
+          <span>Proof of concept</span>
+        </div>
+      </div>
+      <div class="pill">No personal data • Static site</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Small, calm, capable.</h1>
+        <p class="lede">
+          A tiny public page that demonstrates a clean deployment pipeline and a tasteful UI.
+          It intentionally contains no private details.
+        </p>
+
+        <div class="grid" aria-label="Highlights">
+          <div class="card">
+            <h3>Build</h3>
+            <p>Static HTML + CSS. No frameworks. No build step. Fast load.</p>
+          </div>
+          <div class="card">
+            <h3>Operate</h3>
+            <p>Designed for automation-friendly updates: commit → push → publish.</p>
+          </div>
+          <div class="card">
+            <h3>Design</h3>
+            <p>Modern typography, soft gradients, and understated motion — minimal but not boring.</p>
+          </div>
+          <div class="card">
+            <h3>Safety</h3>
+            <p>Sanitized by default: no names, numbers, tokens, or personal links.</p>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/MostAlone/clawd-chores" target="_blank" rel="noreferrer">
+            <span class="dot" aria-hidden="true"></span>
+            Source repository
+          </a>
+          <a class="btn" href="https://docs.github.com/pages" target="_blank" rel="noreferrer">GitHub Pages docs</a>
+        </div>
+
+        <footer>
+          © <span id="y"></span> • Built as a proof of concept.
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
