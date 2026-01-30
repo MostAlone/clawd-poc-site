@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clawd — Proof of Concept</title>
-  <meta name="description" content="A small proof-of-concept site." />
+  <title>Willy — Goldendoodle in Chief</title>
+  <meta name="description" content="Willy is a Goldendoodle with two great loves: minties and bully sticks." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -67,8 +67,25 @@
     }
     .hero > *{position:relative}
 
+    .top{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: center;
+    }
+
     h1{margin:0; font-size: 44px; letter-spacing:-0.8px;}
     p.lede{margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size:16px; line-height:1.6;}
+
+    .photo{
+      border-radius: 18px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .photo img{display:block; width:100%; height:auto;}
+    .caption{padding:10px 12px; color: rgba(255,255,255,0.55); font-size: 12px; border-top:1px solid var(--border)}
 
     .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 22px;}
     .card{
@@ -84,7 +101,7 @@
     .card p{margin:0; color: var(--muted); font-size: 13px; line-height: 1.55}
 
     .cta{margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap;}
-    a.btn{
+    .tag{
       text-decoration:none;
       color: var(--text);
       border:1px solid var(--border);
@@ -94,12 +111,13 @@
       font-size: 13px;
       display:inline-flex; align-items:center; gap: 10px;
     }
-    a.btn.primary{border-color: rgba(124,92,255,0.6); background: rgba(124,92,255,0.16)}
+    .tag.primary{border-color: rgba(124,92,255,0.6); background: rgba(124,92,255,0.16)}
     .dot{width:8px; height:8px; border-radius: 999px; background: var(--accent2); box-shadow: 0 0 0 4px rgba(45,212,191,0.15)}
 
-    footer{margin-top: 28px; color: rgba(255,255,255,0.45); font-size: 12px;}
+    footer{margin-top: 18px; color: rgba(255,255,255,0.45); font-size: 12px;}
 
-    @media (max-width: 720px){
+    @media (max-width: 840px){
+      .top{grid-template-columns: 1fr;}
       h1{font-size: 36px;}
       .card{grid-column: span 12;}
       .hero{padding: 26px;}
@@ -112,50 +130,58 @@
       <div class="mark">
         <div class="logo" aria-hidden="true"></div>
         <div class="title">
-          <strong>Clawd</strong>
-          <span>Proof of concept</span>
+          <strong>Willy</strong>
+          <span>Goldendoodle in Chief</span>
         </div>
       </div>
-      <div class="pill">No personal data • Static site</div>
+      <div class="pill">Treat enthusiast • Serious naps</div>
     </header>
 
     <main>
       <section class="hero">
-        <h1>Small, calm, capable.</h1>
-        <p class="lede">
-          A tiny public page that demonstrates a clean deployment pipeline and a tasteful UI.
-          It intentionally contains no private details.
-        </p>
+        <div class="top">
+          <div>
+            <h1>Minties. Bully sticks. Repeat.</h1>
+            <p class="lede">
+              Willy is a Goldendoodle with a calm face, a fuzzy brain, and a deep commitment to snacks.
+              He believes every day should include: a stroll, a chew, and at least one dramatic sigh.
+            </p>
 
-        <div class="grid" aria-label="Highlights">
-          <div class="card">
-            <h3>Build</h3>
-            <p>Static HTML + CSS. No frameworks. No build step. Fast load.</p>
+            <div class="cta" aria-label="Highlights">
+              <span class="tag primary"><span class="dot" aria-hidden="true"></span> Professional good boy</span>
+              <span class="tag">Minties: yes</span>
+              <span class="tag">Bully sticks: absolutely</span>
+              <span class="tag">Zoomies: scheduled (randomly)</span>
+            </div>
           </div>
-          <div class="card">
-            <h3>Operate</h3>
-            <p>Designed for automation-friendly updates: commit → push → publish.</p>
-          </div>
-          <div class="card">
-            <h3>Design</h3>
-            <p>Modern typography, soft gradients, and understated motion — minimal but not boring.</p>
-          </div>
-          <div class="card">
-            <h3>Safety</h3>
-            <p>Sanitized by default: no names, numbers, tokens, or personal links.</p>
-          </div>
+
+          <figure class="photo">
+            <img src="assets/willy.jpg" alt="Willy the Goldendoodle" />
+            <figcaption class="caption">A distinguished gentleman.</figcaption>
+          </figure>
         </div>
 
-        <div class="cta">
-          <a class="btn primary" href="https://github.com/MostAlone/clawd-chores" target="_blank" rel="noreferrer">
-            <span class="dot" aria-hidden="true"></span>
-            Source repository
-          </a>
-          <a class="btn" href="https://docs.github.com/pages" target="_blank" rel="noreferrer">GitHub Pages docs</a>
+        <div class="grid" aria-label="Willy facts">
+          <div class="card">
+            <h3>Core values</h3>
+            <p>Politeness, persistence, and pretending he hasn’t eaten yet.</p>
+          </div>
+          <div class="card">
+            <h3>Special skills</h3>
+            <p>Detecting the sound of a bag opening from three rooms away.</p>
+          </div>
+          <div class="card">
+            <h3>Preferred hobbies</h3>
+            <p>Sunbeams, couch audits, and chewing with the focus of a chess grandmaster.</p>
+          </div>
+          <div class="card">
+            <h3>Public-facing policy</h3>
+            <p>This page is intentionally personal-info free. It’s just a dog and good vibes.</p>
+          </div>
         </div>
 
         <footer>
-          © <span id="y"></span> • Built as a proof of concept.
+          © <span id="y"></span> Willy Industries • Powered by snacks.
         </footer>
       </section>
     </main>
